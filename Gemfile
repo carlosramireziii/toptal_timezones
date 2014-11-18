@@ -37,6 +37,9 @@ gem 'unicorn'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails', '~> 4.0.0'
 
+# Client-side JS framework
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   # gem 'debugger'
@@ -46,5 +49,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # JavaScript testing framework
+  gem 'qunit-rails', '~> 0.0.7'
 end
 
