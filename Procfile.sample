@@ -1,2 +1,2 @@
 db: postgres -D /usr/local/var/postgres
-web: bin/rails s
+web: bin/unicorn -c ./config/unicorn.rb
