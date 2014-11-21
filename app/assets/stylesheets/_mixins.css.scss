@@ -1,0 +1,17 @@
+@mixin top-flush {
+  margin-top: 0;
+}
+
+@mixin dark-hover {
+  &:hover {
+    background-color: darken(#fff, 25%);
+  }
+}
+
+@mixin show {
+  display: block !important;
+}
+
+@mixin hide {
+  display: none !important;
+}

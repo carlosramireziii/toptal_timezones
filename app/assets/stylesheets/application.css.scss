@@ -14,4 +14,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-@import 'custom';
+@import 'mixins';
+@import 'modules';
+@import 'components';

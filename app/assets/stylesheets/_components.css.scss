@@ -1,0 +1,71 @@
+.timeZoneView {}
+
+.timeZoneList {
+  @extend .list-unstyled;
+  @include make-row;
+}
+
+.timeZone {
+  @include make-md-column(3);
+
+  section {
+    @include dark-hover;
+    @extend .card;
+    @extend .clickable;
+
+    .remove {
+      @extend .pull-right;
+      @extend .clickable;
+      @extend .glyphicon;
+      @extend .glyphicon-trash;
+      
+      // NOTE: TBS no longer has show() or hide() mixins but the docs say they do?
+      @include hide;
+    }
+
+    &:hover {
+      .remove {
+        @include show;
+      }
+    }
+  }
+}
+
+.newTimeZone {
+  @extend .card;
+
+  &.splashMode {
+    @extend .clickable;
+    @include dark-hover;
+    opacity: 0.7;
+  }
+}
+
+.splash {
+  @extend .text-muted;
+  @extend .text-center;
+}
+
+.timeZoneForm {
+  input[type='submit'] {
+    @extend .btn;
+    @extend .btn-success;
+  }
+  .header {
+    @include clearfix;
+    @include top-flush;
+    @extend .page-header;
+
+    h5 { 
+      @extend .pull-left;
+    }
+    button {
+      @extend .pull-right;
+    }
+  }
+}
+
+.footer-nav {
+  padding: 25px 0;
+  margin-bottom: 0;
+}

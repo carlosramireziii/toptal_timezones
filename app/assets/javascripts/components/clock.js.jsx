@@ -12,7 +12,8 @@ var Clock = React.createClass({
   },
 
   tick: function() {
-    this.setState({ time: this.state.time + 1000 });
+    time = new Date(this.state.time).getTime();
+    this.setState({ time: time + 1000 });
   },
 
   formattedTime: function() {
