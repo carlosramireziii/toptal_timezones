@@ -2,12 +2,10 @@
 
 var Menu = React.createClass({
   handleEdit: function() {
-    console.debug('MENU#EDIT_CLICKED!');
     this.props.onEdit();
     return;
   },
   handleRemove: function() {
-    console.debug('MENU#REMOVE_CLICKED!');
     this.props.onRemove();
     return;
   },

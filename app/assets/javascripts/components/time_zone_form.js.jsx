@@ -17,8 +17,7 @@ var TimeZoneForm = React.createClass({
       return;
     }
 
-    var time = (this.isForExistingData()) ? this.props.time : new Date();
-    this.props.onTimeZoneSubmit({ id: this.props.id, name: name, city: city, time: time });
+    this.props.onTimeZoneSubmit({ id: this.props.id, name: name, city: city });
 
     if (!this.isForExistingData()) {
       this.refs.name.getDOMNode().value = ZONES[0].name;

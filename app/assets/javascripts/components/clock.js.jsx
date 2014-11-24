@@ -10,6 +10,9 @@ var Clock = React.createClass({
   componentDidMount: function() {
     this.setInterval(this.tick, 1000);
   },
+  componentWillReceiveProps: function(nextProps) {
+    this.setState({ time: nextProps.initialTime });
+  },
 
   tick: function() {
     time = new Date(this.state.time).getTime();
