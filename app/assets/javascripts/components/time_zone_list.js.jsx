@@ -14,12 +14,11 @@ var TimeZoneList = React.createClass({
   render: function() {
     var updateHandler = this.handleUpdate;
     var removeHandler = this.handleTimeZoneRemove;
-    time = new Date().getTime();
 
     var timeZoneNodes = this.props.data.map(function(timeZone, index) {
       return (
         <li className='timeZoneListItem' key={index}>
-          <EditTimeZone id={timeZone.id} name={timeZone.name} city={timeZone.city} time={time} onUpdate={updateHandler}></EditTimeZone>
+          <EditTimeZone id={timeZone.id} name={timeZone.name} city={timeZone.city} time={timeZone.time} onUpdate={updateHandler}></EditTimeZone>
         </li>
       );
     });

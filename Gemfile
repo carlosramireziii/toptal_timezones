@@ -43,6 +43,9 @@ gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 # Response macros for controllers
 gem 'responders', '~> 2.0.2'
 
+# JSON serializers
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   # gem 'debugger'
@@ -55,5 +58,8 @@ group :development, :test do
 
   # JavaScript testing framework
   gem 'qunit-rails', '~> 0.0.7'
+
+  # Suppress the Sprockets asset logs
+  gem 'quiet_assets', '~> 1.0.3'
 end
 

@@ -24,8 +24,6 @@ var TimeZoneView = React.createClass({
     var timeZones = this.state.data;
     timeZones.push(timeZone);
 
-    console.debug(timeZones);
-
     this.setState({data: timeZones}, function() {
       $.ajax({
         url: this.props.url,
@@ -51,7 +49,7 @@ var TimeZoneView = React.createClass({
     //   }
     // }
 
-    // this.setState({data: timeZone}, function() {
+    // this.setState({data: timeZones}, function() {
     //   $.ajax({
     //     url: this.props.url,
     //     dataType: 'json',
@@ -77,7 +75,7 @@ var TimeZoneView = React.createClass({
       }
     }
 
-    this.setState({data: timeZone}, function() {
+    this.setState({data: timeZones}, function() {
       var url = this.props.url + '/' + timeZone.id;
 
       // $.ajax({

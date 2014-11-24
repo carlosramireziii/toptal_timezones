@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: 42010cc8e87575fcb674bcdef145ded9640d8517
+  branch: 0-9-stable
+  specs:
+    active_model_serializers (0.9.0)
+      activemodel (>= 3.2)
+
+GIT
   remote: git://github.com/reactjs/react-rails.git
   revision: b0dd8c3296ca103384717ff8e5f469a6e2313baf
   specs:
@@ -89,6 +97,8 @@ GEM
     nokogiri (1.6.4.1)
       mini_portile (~> 0.6.0)
     pg (0.17.1)
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
     qunit-rails (0.0.7)
       railties
     rack (1.6.0.beta)
@@ -168,12 +178,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   autoprefixer-rails (~> 4.0.0)
   bootstrap-sass (~> 3.3.0)
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails (~> 4.0.0.beta2)
   pg
+  quiet_assets (~> 1.0.3)
   qunit-rails (~> 0.0.7)
   rails (= 4.2.0.beta4)
   react-rails (~> 1.0.0.pre)!
