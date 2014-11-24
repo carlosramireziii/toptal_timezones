@@ -40,6 +40,9 @@ gem 'autoprefixer-rails', '~> 4.0.0'
 # Client-side JS framework
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
+# Response macros for controllers
+gem 'responders', '~> 2.0.2'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   # gem 'debugger'
