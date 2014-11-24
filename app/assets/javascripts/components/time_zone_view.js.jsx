@@ -67,8 +67,7 @@ var TimeZoneView = React.createClass({
   handleTimeZoneRemove: function(timeZone) {
     var timeZones = this.state.data;
 
-    // Seems like really bad code..
-    for (i = 0; i <= timeZones.length; i++) {
+    for (i = 0; i < timeZones.length; i++) {
       if (timeZones[i].id == timeZones.id) {
         timeZones.splice(i, 1);
         break;
@@ -78,18 +77,17 @@ var TimeZoneView = React.createClass({
     this.setState({data: timeZones}, function() {
       var url = this.props.url + '/' + timeZone.id;
 
-      // $.ajax({
-      //   url: url,
-      //   dataType: 'json',
-      //   type: 'DELETE',
-      //   data: {'board': board},
-      //   success: function(data) {
-      //     this.loadTimeZonesFromServer();
-      //   }.bind(this),
-      //   error: function(xhr, status, err) {
-      //     console.error(this.props.url, status, err.toString());
-      //   }.bind(this)
-      // });
+      $.ajax({
+        url: url,
+        dataType: 'json',
+        type: 'DELETE',
+        success: function(data) {
+          this.loadTimeZonesFromServer();
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
     });
   },
   
@@ -97,7 +95,7 @@ var TimeZoneView = React.createClass({
     return (
       <div className='timeZoneView'>
         <h1 className='page-header'>Your Timezones</h1>
-        <TimeZoneList data={this.state.data} onUpdate={this.handleTimeZoneUpdate} onTimeZoneRemove={this.handleTimeZoneRemove} />
+        <TimeZoneList data={this.state.data} onUpdate={this.handleTimeZoneUpdate} onRemove={this.handleTimeZoneRemove} />
         <NewTimeZone onCreate={this.handleTimeZoneCreate}>Create new time zone...</NewTimeZone>
       </div>
     );

@@ -5,20 +5,19 @@ var TimeZoneList = React.createClass({
     this.props.onUpdate(timeZone);
     return;
   },
-  handleTimeZoneRemove: function(timeZone) {
-    // this.props.onTimeZoneRemove(timeZone);
-    console.debug('REMOVE TIMEZONE');
+  handleRemove: function(timeZone) {
+    this.props.onRemove(timeZone);
     return;
   },
 
   render: function() {
     var updateHandler = this.handleUpdate;
-    var removeHandler = this.handleTimeZoneRemove;
+    var removeHandler = this.handleRemove;
 
     var timeZoneNodes = this.props.data.map(function(timeZone, index) {
       return (
         <li className='timeZoneListItem' key={index}>
-          <EditTimeZone id={timeZone.id} name={timeZone.name} city={timeZone.city} time={timeZone.time} onUpdate={updateHandler}></EditTimeZone>
+          <EditTimeZone id={timeZone.id} name={timeZone.name} city={timeZone.city} time={timeZone.time} onUpdate={updateHandler} onRemove={removeHandler}></EditTimeZone>
         </li>
       );
     });

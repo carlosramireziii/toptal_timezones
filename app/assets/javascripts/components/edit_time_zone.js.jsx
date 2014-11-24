@@ -4,23 +4,18 @@ var EditTimeZone = React.createClass({
   mixins: [FlipboardMixin],
 
   handleEdit: function() {
-    console.debug('EDIT_TIME_ZONE#EDIT_CLICKED!');
     if (this.isFrontShown()) {
       this.flip();
     }
     return;
   },
   handleUpdate: function(timeZone) {
-    console.debug('EDIT_TIME_ZONE#SUBMIT_CLICKED!');
-    console.debug(this);
     this.handleClose();
     this.props.onUpdate(timeZone);
     return;
   },
   handleRemove: function() {
-    console.debug('EDIT_TIME_ZONE#REMOVE_CLICKED!');
-    // this.props.onRemove();
-    //this.props.onTimeZoneRemove({id: this.props.id});
+    this.props.onRemove({id: this.props.id});
     return;
   },
   
