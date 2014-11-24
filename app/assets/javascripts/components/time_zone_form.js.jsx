@@ -11,7 +11,19 @@ var TimeZoneForm = React.createClass({
   //   this.refs.title.getDOMNode().value = '';
   //   return;
   // },
-  handleClick: function() {
+
+  isForExistingData: function() {
+    return this.props.id != null;
+  },
+
+  action: function() { 
+    return (this.isForExistingData()) ? 'Edit' : 'Add';
+  },
+  title: function() {
+    return this.action() + ' ' + 'Time Zone';
+  },
+ 
+  handleClose: function() {
     this.props.onClose();
     return;
   },
@@ -25,22 +37,22 @@ var TimeZoneForm = React.createClass({
     return (
       <div className={classes}>
         <div className='header'>
-          <button type="button" className="close" onClick={this.handleClick}>
+          <button type="button" className="close" onClick={this.handleClose}>
             <span aria-hidden="true">&times;</span>
             <span className="sr-only">Close</span>
           </button>
-          <h5>Add Timezone</h5>
+          <h5>{this.title()}</h5>
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className='field'>
             <label htmlFor='zone'>Title</label>
-            <TimeZoneSelect data={ZONES}></TimeZoneSelect>
+            <TimeZoneSelect data={ZONES} value={this.props.zone}></TimeZoneSelect>
           </div>
           <div className='field'>
             <label htmlFor='city'>City</label>
-            <input type="text" placeholder="City" ref="city" />
+            <input type="text" placeholder="City" ref="city" value={this.props.city} />
           </div>
-          <input type="submit" value="Add Timezone" />
+          <input type="submit" value={this.title()} />
         </form>
       </div>
     );

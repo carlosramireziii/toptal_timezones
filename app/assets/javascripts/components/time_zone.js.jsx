@@ -1,26 +1,28 @@
 /** @jsx React.DOM */
 
 var TimeZone = React.createClass({
-  handleClick: function() {
-    var url = '/time_zones/' + this.props.id;
-    window.location = url;
+  handleEdit: function() {
+    this.props.onEdit();
+    return;
   },
-  handleRemoveClick: function() {
-    //this.props.onBoardRemove({id: this.props.id});
-    console.debug('REMOVE CLICKED');
+  handleRemove: function() {
+    this.props.onRemove();
     return;
   },
 
   render: function() {
+    var classes = React.addons.classSet({
+      'timeZone': true,
+      'hidden': !this.props.show
+    });
+
     return (
-      <li className='timeZone'>
-        <section>
-          <span className='remove' onClick={this.handleRemoveClick}></span>
-          <h2>{this.props.name}</h2>
-          <div>{this.props.city}</div>
-          <Clock initialTime={this.props.time}></Clock>
-        </section>
-      </li>
+      <div className={classes}>
+        <Menu onEdit={this.handleEdit} onRemove={this.handleRemove}></Menu>
+        <div>{this.props.zone}</div>
+        <div>{this.props.city}</div>
+        <div><Clock initialTime={this.props.time}></Clock></div>
+      </div>
     );
   }
 });

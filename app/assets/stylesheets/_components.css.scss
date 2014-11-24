@@ -5,30 +5,27 @@
   @include make-row;
 }
 
-.timeZone {
+.timeZoneListItem {
   @include make-md-column(3);
+}
 
-  section {
-    @include dark-hover;
-    @extend .card;
+.editTimeZone {
+  @extend .card;
+
+  &.splashMode {
     @extend .clickable;
+    @include dark-hover;
+  }
 
-    .remove {
-      @extend .pull-right;
-      @extend .clickable;
-      @extend .glyphicon;
-      @extend .glyphicon-trash;
-      
-      // NOTE: TBS no longer has show() or hide() mixins but the docs say they do?
-      @include hide;
-    }
-
-    &:hover {
-      .remove {
-        @include show;
-      }
+  &:hover {
+    .menu {
+      @include show;
     }
   }
+}
+
+.timeZone {
+  @include clearfix;
 }
 
 .newTimeZone {
@@ -68,4 +65,24 @@
 .footer-nav {
   padding: 25px 0;
   margin-bottom: 0;
+}
+
+.menu {
+  @extend .list-unstyled;
+  @extend .list-inline;
+  @extend .pull-right;
+  @extend .clickable;
+
+  .edit {
+    @extend .glyphicon;
+    @extend .glyphicon-pencil;
+  }
+
+  .remove {
+    @extend .glyphicon;
+    @extend .glyphicon-trash;
+  }
+
+  // NOTE: TBS no longer has show() or hide() mixins but the docs say they do?
+  @include hide;
 }

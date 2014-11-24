@@ -10,8 +10,8 @@ var TimeZoneView = React.createClass({
 
   loadTimeZonesFromServer: function() {
     foo = [
-      { name: 'Eastern Time', city: 'New York' },
-      { name: 'Western Time', city: 'San Francisco' }
+      { id: 1, zone: 'Eastern Time (US & Canada)', city: 'New York' },
+      { id: 2, zone: 'Pacific Time (US & Canada)', city: 'San Francisco' }
     ];
     this.setState({data: foo});
     // $.ajax({

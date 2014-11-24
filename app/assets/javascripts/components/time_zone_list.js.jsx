@@ -12,8 +12,9 @@ var TimeZoneList = React.createClass({
     time = new Date().getTime();
     var timeZoneNodes = this.props.data.map(function(timeZone, index) {
       return (
-        <TimeZone id={timeZone.id} key={index} name={timeZone.name} city={timeZone.city} time={time}>
-        </TimeZone>
+        <li className='timeZoneListItem' key={index}>
+          <EditTimeZone id={timeZone.id} zone={timeZone.zone} city={timeZone.city} time={time}></EditTimeZone>
+        </li>
       );
     });
     return (
