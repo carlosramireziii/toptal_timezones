@@ -15,10 +15,9 @@ var NewTimeZone = React.createClass({
     }
     return;
   },
-  handleTimeZoneSubmit: function(timeZone) {
+  handleCreate: function(timeZone) {
     this.handleClose();
-    // this.props.onTimeZoneSubmit(timeZone);
-    console.debug('TIMEZONE SUBMIT');
+    this.props.onCreate(timeZone);
     return;
   },
 
@@ -31,7 +30,7 @@ var NewTimeZone = React.createClass({
     return (
       <div className={classes} onClick={this.handleClick}>
         <Splash show={this.isFrontShown()}>{this.props.children}</Splash>
-        <TimeZoneForm show={this.isBackShown()} onClose={this.handleClose} onTimeZoneSubmit={this.handleTimeZoneSubmit}></TimeZoneForm>
+        <TimeZoneForm show={this.isBackShown()} onClose={this.handleClose} onTimeZoneSubmit={this.handleCreate}></TimeZoneForm>
       </div>
     );
   }

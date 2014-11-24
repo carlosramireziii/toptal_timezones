@@ -1,31 +1,39 @@
 /** @jsx React.DOM */
 
 var TimeZoneForm = React.createClass({
-  // handleSubmit: function(e) {
-  //   e.preventDefault();
-  //   var title = this.refs.title.getDOMNode().value.trim();
-  //   if (!title) {
-  //     return;
-  //   }
-  //   this.props.onBoardSubmit({title: title});
-  //   this.refs.title.getDOMNode().value = '';
-  //   return;
-  // },
+  handleClose: function() {
+    this.props.onClose();
+    return;
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    
+    var city = this.refs.city.getDOMNode().value.trim();
+    if (!city) {
+      return;
+    }
+    var name = this.refs.name.getDOMNode().value.trim();
+    if (!name) {
+      return;
+    }
+    
+    this.props.onTimeZoneSubmit({ name: name, city: city });
+    this.refs.name.getDOMNode().value = '';
+    this.refs.city.getDOMNode().value = '';
+    return;
+  },
 
   isForExistingData: function() {
     return this.props.id != null;
   },
 
-  action: function() { 
-    return (this.isForExistingData()) ? 'Edit' : 'Add';
+  headerContent: function() {
+    var action = (this.isForExistingData()) ? 'Edit' : 'Add';
+    return action + ' ' + 'Time Zone';
   },
-  title: function() {
-    return this.action() + ' ' + 'Time Zone';
-  },
- 
-  handleClose: function() {
-    this.props.onClose();
-    return;
+  submitContent: function() {
+    var action = (this.isForExistingData()) ? 'Update' : 'Create';
+    return action + ' ' + 'Time Zone';
   },
   
   render: function() {
@@ -41,18 +49,18 @@ var TimeZoneForm = React.createClass({
             <span aria-hidden="true">&times;</span>
             <span className="sr-only">Close</span>
           </button>
-          <h5>{this.title()}</h5>
+          <h5>{this.headerContent()}</h5>
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className='field'>
-            <label htmlFor='zone'>Title</label>
-            <TimeZoneSelect data={ZONES} value={this.props.zone}></TimeZoneSelect>
+            <label htmlFor='name'>Title</label>
+            <TimeZoneSelect data={ZONES} value={this.props.name} ref='name'></TimeZoneSelect>
           </div>
           <div className='field'>
             <label htmlFor='city'>City</label>
-            <input type="text" placeholder="City" ref="city" value={this.props.city} />
+            <input type="text" placeholder="City" ref="city" defaultValue={this.props.city} />
           </div>
-          <input type="submit" value={this.title()} />
+          <input type="submit" value={this.submitContent()} />
         </form>
       </div>
     );

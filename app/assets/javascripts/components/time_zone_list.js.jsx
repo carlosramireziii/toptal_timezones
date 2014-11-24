@@ -1,6 +1,10 @@
 /** @jsx React.DOM */
 
 var TimeZoneList = React.createClass({
+  handleUpdate: function(timeZone) {
+    this.props.onUpdate(timeZone);
+    return;
+  },
   handleTimeZoneRemove: function(timeZone) {
     // this.props.onTimeZoneRemove(timeZone);
     console.debug('REMOVE TIMEZONE');
@@ -8,12 +12,14 @@ var TimeZoneList = React.createClass({
   },
 
   render: function() {
-    var handler = this.handleTimeZoneRemove;
+    var updateHandler = this.handleUpdate;
+    var removeHandler = this.handleTimeZoneRemove;
     time = new Date().getTime();
+
     var timeZoneNodes = this.props.data.map(function(timeZone, index) {
       return (
         <li className='timeZoneListItem' key={index}>
-          <EditTimeZone id={timeZone.id} zone={timeZone.zone} city={timeZone.city} time={time}></EditTimeZone>
+          <EditTimeZone id={timeZone.id} name={timeZone.name} city={timeZone.city} time={time} onUpdate={updateHandler}></EditTimeZone>
         </li>
       );
     });
