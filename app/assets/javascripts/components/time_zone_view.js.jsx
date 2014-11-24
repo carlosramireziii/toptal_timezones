@@ -42,27 +42,29 @@ var TimeZoneView = React.createClass({
   handleTimeZoneUpdate: function(timeZone) {
     var timeZones = this.state.data;
 
-    // for (i = 0; i < timeZones.length; i++) {
-    //   if (timeZones[i].id == timeZone.id) {
-    //     timeZones[i] = timeZone;
-    //     break;
-    //   }
-    // }
+    for (i = 0; i < timeZones.length; i++) {
+      if (timeZones[i].id == timeZone.id) {
+        timeZones[i] = timeZone;
+        break;
+      }
+    }
 
-    // this.setState({data: timeZones}, function() {
-    //   $.ajax({
-    //     url: this.props.url,
-    //     dataType: 'json',
-    //     type: 'POST',
-    //     data: {'time_zone': timeZone},
-    //     success: function(data) {
-    //       this.loadTimeZonesFromServer();
-    //     }.bind(this),
-    //     error: function(xhr, status, err) {
-    //       console.error(this.props.url, status, err.toString());
-    //     }.bind(this)
-    //   });
-    // });
+    this.setState({data: timeZones}, function() {
+      var url = this.props.url + '/' + timeZone.id;
+
+      $.ajax({
+        url: url,
+        dataType: 'json',
+        type: 'PATCH',
+        data: {'time_zone': timeZone},
+        success: function(data) {
+          this.loadTimeZonesFromServer();
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
+    });
   },
   handleTimeZoneRemove: function(timeZone) {
     var timeZones = this.state.data;
@@ -95,7 +97,10 @@ var TimeZoneView = React.createClass({
     return (
       <div className='timeZoneView'>
         <h1 className='page-header'>Your Timezones</h1>
-        <TimeZoneList data={this.state.data} onUpdate={this.handleTimeZoneUpdate} onRemove={this.handleTimeZoneRemove} />
+        <TimeZoneList 
+          data={this.state.data} 
+          onUpdate={this.handleTimeZoneUpdate} 
+          onRemove={this.handleTimeZoneRemove} />
         <NewTimeZone onCreate={this.handleTimeZoneCreate}>Create new time zone...</NewTimeZone>
       </div>
     );

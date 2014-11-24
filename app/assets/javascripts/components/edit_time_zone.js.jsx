@@ -18,7 +18,7 @@ var EditTimeZone = React.createClass({
     this.props.onRemove({id: this.props.id});
     return;
   },
-  
+
   handleClose: function() {
     if (this.isBackShown()) {
       this.flip();
@@ -34,8 +34,14 @@ var EditTimeZone = React.createClass({
     
     return (
       <div className={classes} onClick={this.handleClick}>
-        <TimeZone {...this.props} show={this.isFrontShown()} onEdit={this.handleEdit} onRemove={this.handleRemove}></TimeZone>
-        <TimeZoneForm {...this.props} show={this.isBackShown()} onClose={this.handleClose} onTimeZoneSubmit={this.handleUpdate}></TimeZoneForm>
+        <TimeZone {...this.props} 
+          show={this.isFrontShown()} 
+          onEdit={this.handleEdit} 
+          onRemove={this.handleRemove} />
+        <TimeZoneForm {...this.props} 
+          show={this.isBackShown()} 
+          onClose={this.handleClose} 
+          onTimeZoneSubmit={this.handleUpdate} />
       </div>
     );
   }

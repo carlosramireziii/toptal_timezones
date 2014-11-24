@@ -6,7 +6,7 @@ var TimeZoneSelect = React.createClass({
       return <option key={index} value={zone.name}>{zone.name}</option>
     });
     return (
-      <select ref="zone" value={this.props.value}>{options}</select>
+      <select ref="zone" defaultValue={this.props.defaultValue}>{options}</select>
     );
   }
 });

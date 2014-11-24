@@ -30,7 +30,10 @@ var NewTimeZone = React.createClass({
     return (
       <div className={classes} onClick={this.handleClick}>
         <Splash show={this.isFrontShown()}>{this.props.children}</Splash>
-        <TimeZoneForm show={this.isBackShown()} onClose={this.handleClose} onTimeZoneSubmit={this.handleCreate}></TimeZoneForm>
+        <TimeZoneForm 
+          show={this.isBackShown()} 
+          onClose={this.handleClose} 
+          onTimeZoneSubmit={this.handleCreate} />
       </div>
     );
   }

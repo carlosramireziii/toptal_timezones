@@ -16,12 +16,14 @@ var TimeZoneForm = React.createClass({
     if (!name) {
       return;
     }
-    var time = (this.isForExistingData()) ? this.props.time : new Date();
-    
-    this.props.onTimeZoneSubmit({ name: name, city: city, time: time });
 
-    this.refs.name.getDOMNode().value = ZONES[0].name;
-    this.refs.city.getDOMNode().value = '';
+    var time = (this.isForExistingData()) ? this.props.time : new Date();
+    this.props.onTimeZoneSubmit({ id: this.props.id, name: name, city: city, time: time });
+
+    if (!this.isForExistingData()) {
+      this.refs.name.getDOMNode().value = ZONES[0].name;
+      this.refs.city.getDOMNode().value = '';
+    }
     return;
   },
 
@@ -56,7 +58,7 @@ var TimeZoneForm = React.createClass({
         <form onSubmit={this.handleSubmit}>
           <div className='field'>
             <label htmlFor='name'>Title</label>
-            <TimeZoneSelect data={ZONES} value={this.props.name} ref='name'></TimeZoneSelect>
+            <TimeZoneSelect data={ZONES} defaultValue={this.props.name} ref='name'></TimeZoneSelect>
           </div>
           <div className='field'>
             <label htmlFor='city'>City</label>
