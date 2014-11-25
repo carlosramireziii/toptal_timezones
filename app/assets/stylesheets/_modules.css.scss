@@ -1,6 +1,6 @@
 .field {
   @extend .form-group;
-  input[type='text'], select {
+  input[type='text'], input[type='email'], input[type='password'], select {
     @extend .form-control;
   }
 }
@@ -11,4 +11,11 @@
 
 .clickable {
   cursor: pointer;
+}
+
+.form {
+  input[type='submit'] {
+    @extend .btn;
+    @extend .btn-success;
+  }
 }

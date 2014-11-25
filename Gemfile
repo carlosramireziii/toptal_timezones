@@ -46,6 +46,9 @@ gem 'responders', '~> 2.0.2'
 # JSON serializers
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 
+# Authentication framework
+gem 'omniauth-identity', '~> 1.1.1'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   # gem 'debugger'

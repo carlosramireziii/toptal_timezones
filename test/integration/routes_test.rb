@@ -2,6 +2,17 @@ require 'test_helper'
 
 class RoutesTest < ActionDispatch::IntegrationTest
 
+  test 'authentication routes' do
+    provider = 'identity'
+    assert_routing "auth/#{provider}/callback", { controller: 'sessions', action: 'create', provider: provider }
+    assert_routing "auth/failure", { controller: 'sessions', action: 'failure' }
+  end
+
+  test 'sessions resource routes' do
+    assert_routing({ method: :post, path: 'sessions' }, { controller: 'sessions', action: 'create' })
+    assert_routing({ method: :delete, path: 'sessions' }, { controller: 'sessions', action: 'destroy' })
+  end
+
   test 'time_zones resource routes' do
     id = time_zones(:default).to_param
     assert_routing({ method: :get, path: 'time_zones' }, { controller: 'time_zones', action: 'index' })

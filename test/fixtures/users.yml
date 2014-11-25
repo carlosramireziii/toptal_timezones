@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+DEFAULTS: &DEFAULTS
+  provider: test_provider
+  uid: 123
+
+default:
+  <<: *DEFAULTS
+
+registered:
+  <<: *DEFAULTS
+  uid: <%= ActiveRecord::FixtureSet.identify(:registered) %>

@@ -1,3 +1,36 @@
+.loginView {
+  .header {
+    @extend .text-center;
+  }
+}
+
+.loginForm {
+  @include size(400px, auto);
+  @include center-block;
+
+  form { 
+    @extend .form;
+    @extend .form-horizontal;
+    @extend .well;
+  }
+
+  .field {
+    label { 
+      @extend .col-sm-3;
+      @extend .control-label;
+    }
+    .wrapper { 
+      @extend .col-sm-9 
+    }
+  }
+
+  .actions {
+    @include clearfix;
+    :first-child { @extend .pull-left; }
+    :last-child { @extend .pull-right; }
+  }
+}
+
 .timeZoneView {}
 
 .timeZoneList {
@@ -44,10 +77,8 @@
 }
 
 .timeZoneForm {
-  input[type='submit'] {
-    @extend .btn;
-    @extend .btn-success;
-  }
+  @extend .form;
+
   .header {
     @include clearfix;
     @include top-flush;
@@ -85,4 +116,10 @@
 
   // NOTE: TBS no longer has show() or hide() mixins but the docs say they do?
   @include hide;
+}
+
+.message {
+  &.notice { @extend .bg-success }
+  &.alert { @extend .bg-danger }
+  &.info { @extend .bg-warning }
 }

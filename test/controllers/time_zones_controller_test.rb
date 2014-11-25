@@ -47,6 +47,6 @@ class TimeZonesControllerTest < ActionController::TestCase
   private
 
   def attrs
-    time_zones(:default).dup.attributes
+    time_zones(:default).dup.attributes.except('id')
   end
 end
