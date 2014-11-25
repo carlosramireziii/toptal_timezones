@@ -5,30 +5,17 @@
 }
 
 .loginForm {
-  @include size(400px, auto);
-  @include center-block;
+  @extend .authentication-form;
+}
 
-  form { 
-    @extend .form;
-    @extend .form-horizontal;
-    @extend .well;
+.registerView {
+  .header {
+    @extend .text-center;
   }
+}
 
-  .field {
-    label { 
-      @extend .col-sm-3;
-      @extend .control-label;
-    }
-    .wrapper { 
-      @extend .col-sm-9 
-    }
-  }
-
-  .actions {
-    @include clearfix;
-    :first-child { @extend .pull-left; }
-    :last-child { @extend .pull-right; }
-  }
+.registerForm {
+  @extend .authentication-form;
 }
 
 .timeZoneView {}

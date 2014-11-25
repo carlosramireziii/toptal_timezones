@@ -1,13 +1,18 @@
 /** @jsx React.DOM */
 
 var LoginView = React.createClass({
+  // TODO: make this a prop?
   getInitialState: function() {
     return {error: null};
   },
 
+  loginUrl: function() {
+    return '/auth/identity/callback';
+  },
+
   handleLogin: function(credentials) {
     $.ajax({
-      url: '/auth/identity/callback',
+      url: this.loginUrl(),
       data: credentials,
       dataType: 'json',
       success: function(data) {
@@ -16,7 +21,7 @@ var LoginView = React.createClass({
         }
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.loginUrl(), status, err.toString());
       }.bind(this)
     });
   },

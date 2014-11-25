@@ -8,6 +8,10 @@ class RoutesTest < ActionDispatch::IntegrationTest
     assert_routing "auth/failure", { controller: 'sessions', action: 'failure' }
   end
 
+  test 'identities resource routes' do
+    assert_routing({ method: :get, path: 'identities/new' }, { controller: 'identities', action: 'new' })
+  end
+
   test 'sessions resource routes' do
     assert_routing({ method: :post, path: 'sessions' }, { controller: 'sessions', action: 'create' })
     assert_routing({ method: :delete, path: 'sessions' }, { controller: 'sessions', action: 'destroy' })

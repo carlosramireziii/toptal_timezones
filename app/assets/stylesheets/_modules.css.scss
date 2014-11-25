@@ -19,3 +19,22 @@
     @extend .btn-success;
   }
 }
+
+.authentication-form {
+  @include size(400px, auto);
+  @include center-block;
+
+  form { 
+    @extend .form;
+    @extend .form-horizontal;
+    @extend .well;
+  }
+
+  .field {
+    @include horizontal-field;
+  }
+
+  .actions {
+    @include split;
+  }
+}

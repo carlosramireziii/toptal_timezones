@@ -15,3 +15,21 @@
 @mixin hide {
   display: none !important;
 }
+
+@mixin split {
+  @include clearfix;
+  :first-child { @extend .pull-left; }
+  :last-child { @extend .pull-right; }
+}
+
+@mixin horizontal-field($label-size: 3) {
+  $input-size: 12 - $label-size;
+
+  label { 
+    @extend .col-sm-#{$label-size};
+    @extend .control-label;
+  }
+  .wrapper { 
+    @extend .col-sm-#{$input-size}
+  }
+}
