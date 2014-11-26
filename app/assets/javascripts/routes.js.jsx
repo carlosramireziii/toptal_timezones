@@ -3,6 +3,7 @@ $(document).ready(function() {
   var { Route, RouteHandler, DefaultRoute } = ReactRouter;
 
   var TimeZoneRoute = React.createClass({
+    mixins: [RequireAuthMixin],
     url: '/time_zones',
     render: function() {
       return <TimeZoneView url={this.url}/>

@@ -1,9 +1,6 @@
 /** @jsx React.DOM */
 
 var TimeZoneView = React.createClass({
-
-  mixins: [RequireAuthMixin],
-
   getInitialState: function() {
     return {data: []};
   },
