@@ -1,17 +1,13 @@
 /** @jsx React.DOM */
 
+var { Link } = ReactRouter;
+
 var LoginForm = React.createClass({
   handleSubmit: function (e) {
     e.preventDefault();
     
     var email = this.refs.email.getDOMNode().value.trim();
-    if (!email) {
-      return;
-    }
     var password = this.refs.password.getDOMNode().value.trim();
-    if (!password) {
-      return;
-    }
 
     this.props.onLogin({ auth_key: email, password: password });
 
@@ -39,7 +35,7 @@ var LoginForm = React.createClass({
           </div>
           <div className='actions'>
             <div>
-              <a href='#'>{"I don't have an account"}</a>
+              <Link to='register'>{"I don't have an account"}</Link>
             </div>
             <input type="submit" value='Let me in' />
           </div>

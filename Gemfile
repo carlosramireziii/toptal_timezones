@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 ruby '2.1.3'
 
@@ -48,6 +49,8 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers', br
 
 # Authentication framework
 gem 'omniauth-identity', '~> 1.1.1'
+
+gem 'rails-assets-react-router'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

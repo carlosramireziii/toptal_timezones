@@ -110,3 +110,7 @@
   &.alert { @extend .bg-danger }
   &.info { @extend .bg-warning }
 }
+
+.logout {
+  @extend .clickable;
+}

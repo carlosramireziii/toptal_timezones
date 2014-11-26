@@ -46,7 +46,7 @@ var RegisterForm = React.createClass({
           </div>
           <div className='actions'>
             <div>
-              <a href='#'>{"I already have an account"}</a>
+              <Link to='login'>I already have an account</Link>
             </div>
             <input type="submit" value='Sign me up' />
           </div>

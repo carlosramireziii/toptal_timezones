@@ -1,6 +1,9 @@
 /** @jsx React.DOM */
 
 var TimeZoneView = React.createClass({
+
+  mixins: [RequireAuthMixin],
+
   getInitialState: function() {
     return {data: []};
   },
@@ -96,6 +99,7 @@ var TimeZoneView = React.createClass({
   render: function() {
     return (
       <div className='timeZoneView'>
+        <Navbar/>
         <h1 className='page-header'>Your Timezones</h1>
         <TimeZoneList 
           data={this.state.data} 
