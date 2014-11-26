@@ -7,8 +7,5 @@ DEFAULTS: &DEFAULTS
 default:
   <<: *DEFAULTS
   token: <%= SecureRandom.uuid %>
-
-registered:
-  <<: *DEFAULTS
-  token: <%= SecureRandom.uuid %>
-  uid: <%= ActiveRecord::FixtureSet.identify(:registered) %>
+  uid: <%= ActiveRecord::FixtureSet.identify(:default) %>
+  # time_zones: [default]

@@ -5,11 +5,11 @@ class TimeZonesController < ApplicationController
   before_action :set_time_zone, only: [:update, :destroy]
 
   def index
-    respond_with @time_zones = TimeZone.all
+    respond_with @time_zones = current_user.time_zones.all
   end
 
   def create
-    respond_with @time_zone = TimeZone.create(time_zone_params)
+    respond_with @time_zone = current_user.time_zones.create(time_zone_params)
   end
 
   def update
@@ -23,7 +23,7 @@ class TimeZonesController < ApplicationController
   private
 
   def set_time_zone
-    @time_zone = TimeZone.find(params[:id])
+    @time_zone = current_user.time_zones.find(params[:id])
   end
 
   def time_zone_params

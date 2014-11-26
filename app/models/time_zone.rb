@@ -1,4 +1,6 @@
 class TimeZone < ActiveRecord::Base
+  belongs_to :user, inverse_of: :time_zones
+
   validates :name, presence: true
   validates :city, presence: true
 

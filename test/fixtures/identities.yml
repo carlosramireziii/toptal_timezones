@@ -6,7 +6,3 @@ DEFAULTS: &DEFAULTS
 
 default:
   <<: *DEFAULTS
-
-registered:
-  <<: *DEFAULTS
-  email: registered.user@test.com

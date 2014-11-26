@@ -11,7 +11,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'POST create when user exists' do
-    user = users(:registered)
+    user = users(:default)
     mock_omniauth_auth_from_user(user)
 
     assert_no_difference 'User.count' do

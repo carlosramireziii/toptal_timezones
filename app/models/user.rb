@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include TokenGenerator
 
+  has_many :time_zones, inverse_of: :user, dependent: :destroy
+
   before_validation lambda { |o| o.generate_token(:token) unless o.token.present? }, on: :create
 
   def self.from_omniauth(auth)

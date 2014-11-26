@@ -3,6 +3,7 @@
 DEFAULTS: &DEFAULTS
   name: 'Eastern Time (US & Canada)'
   city: New York
+  user: default
 
 default:
   <<: *DEFAULTS

@@ -5,13 +5,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  attr_reader :current_user
+
   def restrict_access
     authenticate_or_request_with_http_token do |token, options|
-      User.exists?(token: token)
+      @current_user = User.find_by(token: token)
     end
-  end
-
-  def current_user
-    @current_user ||= User.find_by(token: params[:token])
   end
 end
