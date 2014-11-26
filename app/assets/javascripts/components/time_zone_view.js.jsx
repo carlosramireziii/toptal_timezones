@@ -15,6 +15,9 @@ var TimeZoneView = React.createClass({
     $.ajax({
       url: this.props.url,
       dataType: 'json',
+      headers: {
+        'Authorization': 'Token token=' + auth.getToken(),
+      },
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
@@ -32,6 +35,9 @@ var TimeZoneView = React.createClass({
         url: this.props.url,
         dataType: 'json',
         type: 'POST',
+        headers: {
+          'Authorization': 'Token token=' + auth.getToken(),
+        },
         data: {'time_zone': timeZone},
         success: function(data) {
           this.loadTimeZonesFromServer();
@@ -59,6 +65,9 @@ var TimeZoneView = React.createClass({
         url: url,
         dataType: 'json',
         type: 'PATCH',
+        headers: {
+          'Authorization': 'Token token=' + auth.getToken(),
+        },
         data: {'time_zone': timeZone},
         success: function(data) {
           this.loadTimeZonesFromServer();
@@ -86,6 +95,9 @@ var TimeZoneView = React.createClass({
         url: url,
         dataType: 'json',
         type: 'DELETE',
+        headers: {
+          'Authorization': 'Token token=' + auth.getToken(),
+        },
         success: function(data) {
           this.loadTimeZonesFromServer();
         }.bind(this),
