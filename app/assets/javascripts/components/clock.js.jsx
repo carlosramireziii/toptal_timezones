@@ -21,6 +21,11 @@ var Clock = React.createClass({
 
   formattedTime: function() {
     time = new Date(this.state.time);
+
+    if (isNaN(time.getTime())) {
+      return '';
+    }
+    
     return time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds();
   },
 
