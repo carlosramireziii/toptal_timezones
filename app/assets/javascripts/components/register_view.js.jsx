@@ -1,30 +1,26 @@
 /** @jsx React.DOM */
 
 var RegisterView = React.createClass({
+  mixins: [ReactRouter.Navigation],
+
   // TODO: make this a prop?
   getInitialState: function() {
     return {error: null};
   },
 
-  // TODO: receive this via props
-  registerUrl: function() {
-    return '/auth/identity/register';
-  },
-
   handleRegister: function(identity) {
     $.ajax({
-      url: this.registerUrl(),
+      url: this.props.url,
       type: 'POST',
       data: identity,
       dataType: 'json',
       success: function(data) {
-        console.debug(data);
-        this.setState({ error: null });
+        this.transitionTo('/login');
       }.bind(this),
       error: function(xhr, status, err) {
         // TODO: provide better errors
         this.setState({ error: 'Something went wrong. Please try again.' })
-        console.error(this.registerUrl(), status, err.toString());
+        console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
   },
