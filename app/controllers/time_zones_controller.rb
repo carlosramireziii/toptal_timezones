@@ -1,6 +1,7 @@
 class TimeZonesController < ApplicationController
   respond_to :json
 
+  before_action :restrict_access
   before_action :set_time_zone, only: [:update, :destroy]
 
   def index

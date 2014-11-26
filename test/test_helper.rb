@@ -11,6 +11,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def login_user_for_tests(user)
-    session[:user_id] = user.id
+    @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(user.token)
   end
 end

@@ -4,6 +4,7 @@ class TimeZonesControllerTest < ActionController::TestCase
   
   setup do
     @time_zone = time_zones(:default)
+    login_user_for_tests users(:registered)
   end
 
   test 'GET index' do

@@ -1,3 +1,3 @@
 class AuthContextSerializer < ActiveModel::Serializer
-  attributes :authenticated?, :error
+  attributes :authenticated?, :error, :token
 end
