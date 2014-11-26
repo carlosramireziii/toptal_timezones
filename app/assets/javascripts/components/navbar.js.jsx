@@ -1,17 +1,23 @@
 /** @jsx React.DOM */
 
 var Navbar = React.createClass({
+  handleSearch: function(filter) {
+    this.props.onSearch(filter);
+    return;
+  },
+
   render: function() {
     return (
       <nav className="navbar navbar-default" role="navigation">
         <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav navbar-right">
-              <li>
-                <Logout/>
-              </li>
-            </ul>
-          </div>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <SearchForm onSearch={this.handleSearch}/>
+            </li>
+            <li>
+              <Logout/>
+            </li>
+          </ul>
         </div>
       </nav>
     );

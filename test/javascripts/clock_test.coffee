@@ -24,4 +24,4 @@ test 'renders formatted time', (assert) ->
   date.setHours(10, 30, 0);
   clock = TU.renderIntoDocument new Clock(initialTime: date.getTime())
   span = TU.findRenderedDOMComponentWithTag clock, 'span'
-  assert.equal span.props.children, '10:30:0'
+  assert.equal span.props.children, '10:30:00'

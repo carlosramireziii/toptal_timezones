@@ -11,4 +11,10 @@ class TimeZone < ActiveRecord::Base
       Time.zone.now
     end
   end
+
+  def self.filter(params = {})
+    result = all
+    result = result.where('name LIKE ?', "%#{params[:name]}%") if params[:name].present?
+    result
+  end
 end

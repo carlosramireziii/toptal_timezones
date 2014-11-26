@@ -27,4 +27,16 @@ class TimeZoneTest < ActiveSupport::TestCase
     @time_zone.name = nil
     assert_nil @time_zone.current_time_in_zone
   end
+
+  test '#filter' do
+    result = TimeZone.filter
+    assert_equal result, TimeZone.all
+
+    result = TimeZone.filter(name: 'foo')
+    assert_empty result
+
+    time_zone = time_zones(:default)
+    result = TimeZone.filter(name: time_zone.name)
+    assert_includes result, time_zone
+  end
 end

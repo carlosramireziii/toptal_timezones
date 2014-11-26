@@ -13,6 +13,17 @@ class TimeZonesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'GET index with filter' do
+    get :index, format: :json, name: 'foo'
+    assert_not_nil assigns(:time_zones)
+    assert_empty assigns(:time_zones)
+
+    get :index, format: :json, name: @time_zone.name
+    assert_not_nil assigns(:time_zones)
+    assert_not_empty assigns(:time_zones)
+    assert_includes assigns(:time_zones), @time_zone
+  end
+
   test 'POST create' do
     assert_difference 'TimeZone.count' do
       post :create, format: :json, time_zone: attrs

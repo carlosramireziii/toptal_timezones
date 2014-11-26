@@ -5,7 +5,7 @@ class TimeZonesController < ApplicationController
   before_action :set_time_zone, only: [:update, :destroy]
 
   def index
-    respond_with @time_zones = current_user.time_zones.all
+    respond_with @time_zones = current_user.time_zones.filter(params)
   end
 
   def create

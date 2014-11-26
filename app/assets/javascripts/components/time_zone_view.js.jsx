@@ -107,11 +107,27 @@ var TimeZoneView = React.createClass({
       });
     });
   },
+  handleSearch: function(filter) {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      headers: {
+        'Authorization': 'Token token=' + auth.getToken(),
+      },
+      data: { 'name': filter },
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
   
   render: function() {
     return (
       <div className='timeZoneView'>
-        <Navbar/>
+        <Navbar onSearch={this.handleSearch}/>
         <section>
           <h1 className='page-header'>Your Timezones</h1>
           <TimeZoneList
