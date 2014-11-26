@@ -1,28 +1,51 @@
-== README
+# Toptal Timezones
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## cURL Commands
 
-Things you may want to cover:
+### Login
 
-* Ruby version
+```
+curl -XGET -L 'http://localhost:8080/auth/identity/callback?auth_key=<email>&password=<password>'
+```
 
-* System dependencies
+### Register
 
-* Configuration
+```
+curl -XPOST 'http://localhost:8080/auth/identity/register' --data "email=<email>&password=<password>&password_confirmation=<password>"
+```
 
-* Database creation
+### Time Zone Fetch (List)
 
-* Database initialization
+```
+curl -XGET 'http://localhost:8080/time_zones.json' -H "Authorization: Token token=<token>"
+```
 
-* How to run the test suite
+### Time Zone Fetch (List w/ filters)
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+curl -XGET 'http://localhost:8080/time_zones.json?name=<filter>' -H "Authorization: Token token=<token>"
+```
 
-* Deployment instructions
+### Time Zone Create
 
-* ...
+```
+curl -XPOST 'http://localhost:8080/time_zones.json?' -H "Authorization: Token token=<token>" --data "time_zone[name]=<name>&time_zone[city]=<city>"
+```
 
+### Time Zone Fetch (Single)
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+curl -XGET 'http://localhost:8080/time_zones/<id>.json' -H "Authorization: Token token=<token>"
+```
+
+### Time Zone Update
+
+```
+curl -XPATCH 'http://localhost:8080/time_zones/<id>.json' -H "Authorization: Token token=<token>" --data "time_zone[name]=<name>&time_zone[city]=<city>"
+```
+
+### Time Zone Delete
+
+```
+curl -XDELETE 'http://localhost:8080/time_zones/<id>.json' -H "Authorization: Token token=<token>"
+```

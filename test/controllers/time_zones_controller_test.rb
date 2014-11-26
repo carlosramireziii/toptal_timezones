@@ -42,6 +42,12 @@ class TimeZonesControllerTest < ActionController::TestCase
     end
   end
 
+  test 'GET show' do
+    get :show, format: :json, id: @time_zone
+    assert_equal assigns(:time_zone), @time_zone
+    assert_response :success
+  end
+
   test 'PATCH update' do
     patch :update, format: :json, id: @time_zone, time_zone: attrs
     assert_equal @time_zone, assigns(:time_zone)
