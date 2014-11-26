@@ -19,8 +19,9 @@ var TimeZone = React.createClass({
     return (
       <div className={classes}>
         <Menu onEdit={this.handleEdit} onRemove={this.handleRemove}></Menu>
-        <div>{this.props.name}</div>
-        <div>{this.props.city}</div>
+        <div><strong>{this.props.name}</strong></div>
+        <div>{this.props.offset}</div>
+        <div><em>{this.props.city}</em></div>
         <div><Clock initialTime={this.props.time}></Clock></div>
       </div>
     );

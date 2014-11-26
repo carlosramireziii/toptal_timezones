@@ -21,7 +21,8 @@ var TimeZoneList = React.createClass({
             id={timeZone.id} 
             name={timeZone.name} 
             city={timeZone.city} 
-            time={timeZone.time} 
+            time={timeZone.time}
+            offset={timeZone.offset}
             onUpdate={updateHandler} 
             onRemove={removeHandler} />
         </li>

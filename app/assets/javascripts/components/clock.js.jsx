@@ -26,7 +26,11 @@ var Clock = React.createClass({
       return '';
     }
     
-    return time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds();
+    return (
+      $.strPad(time.getHours(), 2, '0') + ':' + 
+      $.strPad(time.getMinutes(), 2, 0) + ':' + 
+      $.strPad(time.getSeconds(), 2, 0)
+    );
   },
 
   render: function() {
