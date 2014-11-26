@@ -18,7 +18,11 @@
   @extend .authentication-form;
 }
 
-.timeZoneView {}
+.timeZoneView {
+  section {
+    @extend .container-fluid;
+  }
+}
 
 .timeZoneList {
   @extend .list-unstyled;
@@ -26,7 +30,7 @@
 }
 
 .timeZoneListItem {
-  @include make-md-column(3);
+  @include make-sm-column(3);
 }
 
 .editTimeZone {

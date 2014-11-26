@@ -26,10 +26,10 @@
   $input-size: 12 - $label-size;
 
   label { 
-    @extend .col-sm-#{$label-size};
+    @include make-sm-column($label-size);
     @extend .control-label;
   }
   .wrapper { 
-    @extend .col-sm-#{$input-size}
+    @include make-sm-column($input-size);
   }
 }

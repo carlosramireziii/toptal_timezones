@@ -100,12 +100,14 @@ var TimeZoneView = React.createClass({
     return (
       <div className='timeZoneView'>
         <Navbar/>
-        <h1 className='page-header'>Your Timezones</h1>
-        <TimeZoneList 
-          data={this.state.data} 
-          onUpdate={this.handleTimeZoneUpdate} 
-          onRemove={this.handleTimeZoneRemove} />
-        <NewTimeZone onCreate={this.handleTimeZoneCreate}>Create new time zone...</NewTimeZone>
+        <section>
+          <h1 className='page-header'>Your Timezones</h1>
+          <TimeZoneList
+            data={this.state.data} 
+            onUpdate={this.handleTimeZoneUpdate} 
+            onRemove={this.handleTimeZoneRemove} />
+          <NewTimeZone onCreate={this.handleTimeZoneCreate}>Create new time zone...</NewTimeZone>
+        </section>
       </div>
     );
   }
